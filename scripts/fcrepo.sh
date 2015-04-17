@@ -17,7 +17,7 @@ chmod g-w $FEDORA_HOME
 if [ ! -f "$DOWNLOAD_DIR/fcrepo-installer-$FEDORA_VERSION.jar" ]; then
   echo "Downloading Fedora"
   # Download fcrepo
-  wget -q -O "$DOWNLOAD_DIR/fcrepo-installer-$FEDORA_VERSION.jar" "http://downloads.sourceforge.net/project/fedora-commons/fedora/$FEDORA_VERSION/fcrepo-installer-$FEDORA_VERSION.jar"
+  wget -q -O "$DOWNLOAD_DIR/fcrepo-installer-$FEDORA_VERSION.jar" "https://github.com/fcrepo3/fcrepo/releases/download/v3.8.1-RC3/fcrepo-installer-3.8.1-SNAPSHOT.jar"
 fi
 
 # Get install properties
@@ -35,9 +35,9 @@ if [ $? -ne 0 ]; then
   # Had a corrupt jarfile in cache, if can't install then redownload it
   echo "Problem with jar file, redownloading"
   rm -f "$DOWNLOAD_DIR/fcrepo-installer-$FEDORA_VERSION.jar" 
-  wget -q -O "$DOWNLOAD_DIR/fcrepo-installer-$FEDORA_VERSION.jar" "http://downloads.sourceforge.net/project/fedora-commons/fedora/$FEDORA_VERSION/fcrepo-installer-$FEDORA_VERSION.jar"
-  cp "$DOWNLOAD_DIR/fcrepo-installer-$FEDORA_VERSION.jar" $HOME_DIR
-  java -jar fcrepo-installer-$FEDORA_VERSION.jar install.properties
+  wget -q -O "$DOWNLOAD_DIR/fcrepo-installer-$FEDORA_VERSION.jar" "https://github.com/fcrepo3/fcrepo/releases/download/v3.8.1-RC3/fcrepo-installer-3.8.1-SNAPSHOT.jar"
+  cp "$DOWNLOAD_DIR/fcrepo-installer-3.8.1-SNAPSHOT.jar" $HOME_DIR
+  java -jar fcrepo-installer-3.8.1-SNAPSHOT.jar install.properties
 fi
 
 # Deploy fcrepo
